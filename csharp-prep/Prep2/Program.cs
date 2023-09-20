@@ -24,6 +24,7 @@ class Program
         {
             gradeSign = "";
         }
+        
         if (gradeNumber >= 90)
         {
             letter = "A";

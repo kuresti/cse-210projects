@@ -15,7 +15,7 @@ class Program
 
         //Initializing variables
         int number = -1;
-        string entry = "";
+        
 
         //While loop to add user input to numbers list
         while (number != 0)
@@ -23,11 +23,16 @@ class Program
         
         //Prompt to add numbers to list
         Console.Write("Enter number: ");
-        entry = Console.ReadLine();
-        number = int.Parse(entry);
+        
+        
+        number = int.Parse(Console.ReadLine());
 
         //Adding user input number to numbers list
+        //Excluding 0 from the numbers list
+        if (number != 0)
+        {
         numbers.Add(number);
+        }
         }
         //The sum of numbers list using the Sum() method
         int total = numbers.Sum();
@@ -42,21 +47,21 @@ class Program
         Console.WriteLine($"The largest number is: {max}");
 
         //The smallest postitive number in numbers list
-        numbers.Sort();
-       
-       Console.WriteLine("The sorted list is:");
-        
-        //foreach loop to iterate through list sorting list by number
-        foreach (int x in numbers)
+        foreach (int num in numbers)
         {
-            if (x != 0)
-            Console.WriteLine(x);
+            if(num > 0 && num < max)
+            {
+                max = num;
+            }
         }
-        
-        
+        Console.WriteLine($"The smallest positive number is: {max}");
 
-
-
-        
+        //Sorted list of numbers
+        Console.WriteLine($"The sorted list is: ");
+        numbers.Sort();
+        foreach (int num in numbers)
+        {
+            Console.WriteLine(num);
+        }
     }
 }

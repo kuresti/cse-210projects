@@ -4,6 +4,14 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Develop02 World!");
+       // Menu newMenu = new Menu();
+
+       // newMenu.DisplayMenu();
+
+        PromptGenerator newPrompt = new PromptGenerator();
+
+        newPrompt.DisplayPrompt();
+
+        
     }
 }

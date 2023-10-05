@@ -29,6 +29,7 @@ public class PromptGenerator
     "Who are you grateful for today?", "Tell about who your friends are and what you like about them?",
     "What qualities does a good friend have?"};
 
+    //Constructor for PromptGenerator
     public PromptGenerator()
     {
     }

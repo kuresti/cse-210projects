@@ -4,13 +4,13 @@ class Program
 {
     static void Main(string[] args)
     {
-       // Menu newMenu = new Menu();
+        Menu newMenu = new Menu();
 
-       // newMenu.DisplayMenu();
+        newMenu.DisplayMenu();
 
-        PromptGenerator newPrompt = new PromptGenerator();
+        //PromptGenerator newPrompt = new PromptGenerator();
 
-        newPrompt.DisplayPrompt();
+        //newPrompt.DisplayPrompt();
 
         
     }

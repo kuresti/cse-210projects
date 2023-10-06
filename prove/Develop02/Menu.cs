@@ -29,20 +29,41 @@ public class Menu
             
             Console.WriteLine("Please select one of the following choices: ");
             Console.WriteLine("1. Write");
-            Console.WriteLine("2. Quit");
+            Console.WriteLine("2. Load");
+            Console.WriteLine("3. Save");
+            Console.WriteLine("4. Display");
+            Console.WriteLine("5. Exit");
             
             _choice = Console.ReadLine();
             
            switch (_choice)
            {
-                case "1":
-                    
+                case "1":                    
                     newPrompt.DisplayPrompt();
                     break;
+
+                case "2":
+
+                case "3":
+
+                case "4":
+                
+                case "5":
+                    ExitProgram();
+                    break;
+
+                
+                
            }
             
             
         
     }
+
+    public void ExitProgram()
+        {
+            System.Environment.Exit(0);
+        }
+    
 }
   

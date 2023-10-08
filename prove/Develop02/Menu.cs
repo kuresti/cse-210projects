@@ -19,11 +19,7 @@ public class Menu
     //New instance of Journal Class
     Journal myJournal = new Journal();
 
-    //New instance of JournalEntry class
-    // JournalEntry newEntry = new JournalEntry();
-
     
-
 
      //Behaviors/methods of Menu class
     //while loop to iterate through menu options for user to choose an option

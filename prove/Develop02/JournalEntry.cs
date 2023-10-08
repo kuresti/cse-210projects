@@ -24,7 +24,7 @@ public class JournalEntry
     {
          //JournalEntry _dailyEntry = new JournalEntry();
          DateTime date1 = DateTime.Now;
-        _todayDate = "Date: " + date1;
+        _todayDate = "\nDate: " + date1;
          Console.WriteLine($"\n{_todayDate}");
          _locationPrompt = "What is your location? ";
          Console.Write(_locationPrompt);

@@ -7,6 +7,12 @@ using System.Text.Json.Serialization;
 public class Journal
 {
     //attributes of Journal class
+
+   public string _location;
+   public string _locationPrompt;
+   public string _response;
+   public string _prompt;
+   public string _todayDate;
   
     public string _fileName =  "MyJournal.txt";
    public string _journalFile;
@@ -14,15 +20,42 @@ public class Journal
    
    public string _entry;
 
-    //Empty list to hold journal entries
-    public List<JournalEntry> _entries = new List<JournalEntry>();
+
+     public List<string> entry = new List<string>();
+
+    //New instance of PromptGenerator Class
+    PromptGenerator newPrompt = new PromptGenerator();
     
-    //Instance of JournalEntry
-    JournalEntry newJournalEntry = new JournalEntry();
-    
+        
+
     public void AddEntry()
     {
-        newJournalEntry.AddEntry();
+         //Date time object
+         DateTime date1 = DateTime.Now;
+        _todayDate = "\nDate: " + date1;
+
+        //print date to console
+         Console.WriteLine($"\n{_todayDate}");
+
+         //Prompts user to enter their location and prints to console
+         _locationPrompt = "What is your location? ";
+         Console.Write(_locationPrompt);
+        _location = Console.ReadLine();
+
+        //Grabs a journal prompt from prompt generator and prints to console
+         _prompt = newPrompt.DisplayPrompt();
+         Console.Write($"{_prompt}\n");
+
+        //Gets and reads the user's response to the prompt
+        _response = Console.ReadLine();
+
+        //Adds all of the attributes of the AddEntry method and 
+        //writes them to the entry list
+        entry.Add(_todayDate);
+        entry.Add(_locationPrompt);
+        entry.Add(_location);
+        entry.Add(_prompt);
+        entry.Add(_response);
     }
 
     //Behaviors of Journal class
@@ -31,6 +64,10 @@ public class Journal
         
             Console.Write("Please enter the file name (MyJournal.txt): ");
             Console.ReadLine();
+            Console.WriteLine("Loading file....");
+
+            //if statement to check if the MyJournal.txt exists
+            //if it doesn't exist the file will be created.
             if (!File.Exists(_fileName))
             {
             File.CreateText(_fileName); 
@@ -40,9 +77,13 @@ public class Journal
 
    public void SaveToFile()
    {
-    using (StreamWriter outputFile = new StreamWriter(@"C:\Users\kures\OneDrive\Documents\byuiClasses\cse-210projects\prove\Develop02\MyJournal.txt_fileName", true))
+    using (StreamWriter outputFile = new StreamWriter(@"C:\Users\kures\OneDrive\Documents\byuiClasses\cse-210projects\prove\Develop02\MyJournal.txt", true))
     {
-        foreach (string e in newJournalEntry.entry)
+        Console.WriteLine("Saving to file...");
+
+        //A for loop to iterate through the string list
+        //and save items in list to MyJournal.txt
+        foreach (string e in entry)
             {
                 outputFile.WriteLine(e);
             }
@@ -53,9 +94,10 @@ public class Journal
        //File.WriteAllText(_fileName, json);
     }
 
-    public void DisplayJournalEntries()
+    public void  DisplayJournalEntries()
     {
-        //dynamic _entries
+        string jText = File.ReadAllText(_fileName);
+        Console.WriteLine(jText);
     }
 
    

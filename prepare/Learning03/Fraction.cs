@@ -9,21 +9,21 @@ public class Fraction
     {
         _topNumber = 1;
         _bottomNumber = 1;
-        Console.WriteLine($"{_topNumber}/{_bottomNumber}");
+       // Console.WriteLine($"{_topNumber}/{_bottomNumber}");
     }
 
     public Fraction(int top)
     {
         _topNumber = top;
         _bottomNumber = 1;
-        Console.WriteLine($"{_topNumber}/{_bottomNumber}");
+       // Console.WriteLine($"{_topNumber}/{_bottomNumber}");
     }
 
     public Fraction(int top, int bottom)
     {
         _topNumber = top;
         _bottomNumber = bottom;
-        Console.WriteLine($"{_topNumber}/{_bottomNumber}");
+       // Console.WriteLine($"{_topNumber}/{_bottomNumber}");
     }
 
     public int GetTopNumber()
@@ -31,7 +31,7 @@ public class Fraction
         return _topNumber;
     }
 
-    public void SetTopNumber()
+    public void SetTopNumber(int top)
     {
         _topNumber = top;
     }
@@ -41,7 +41,7 @@ public class Fraction
         return _bottomNumber;
     }
 
-    public void SetBottomNumber()
+    public void SetBottomNumber(int bottom)
     {
         _bottomNumber = bottom;
     }
@@ -54,8 +54,7 @@ public class Fraction
 
     public double GetDecimalValue()
     {
-        double decimalValue = _topNumber / _bottomNumber;
-        return decimalValue;
+        return (double)_topNumber / (double)_bottomNumber;
     }
 
 }

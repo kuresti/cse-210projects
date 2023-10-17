@@ -6,7 +6,7 @@ public class PromptGenerator
     // Attribute of Prompt Generoator
 
     //Daily prompt
-    public string _dailyPrompt;
+    public string _randomPrompt;
     //List that holds 30 journal prompts
     
     List<string> _prompts = new List<string> {"What was your favorite thing about today and why?", "What is a problem faced today and how did you solve it?", 
@@ -18,7 +18,7 @@ public class PromptGenerator
     "Tell about what brings joy in your life...", "Tell about what brings peace in your life...",
     "Who is your hero and what attributes make them your hero?", "What can I do to bring more joy to others?",
     "What was surprising about your day?", "Tell about a favorite memory of your mother or mother figure in your life...",
-    "Tell about a favorite memor of your father or father figure in your life...", 
+    "Tell about a favorite memory of your father or father figure in your life...", 
     "What is an attribute you would like to work on? What will you do to gain that attribute?",
     "What is your favorite scripture passage and why?", "Is gaining knowledge important to you? Why or why not?",
     "What are 3 goals you would like to reach? List a plan to reach them.", "What was the hardest part of your day?",
@@ -35,7 +35,7 @@ public class PromptGenerator
     }
 
     //Method to display daily prompt   
-    public void DisplayPrompt()
+    public string DisplayPrompt()
     {
         //Create an instance of a randomizer
         Random _dailyPrompt = new Random();
@@ -44,8 +44,12 @@ public class PromptGenerator
         //max number of items in the list
         int randomNumber = _dailyPrompt.Next(_prompts.Count);
 
-        //Display a random prompt fro the prompts list
-        Console.WriteLine((string)_prompts[randomNumber]);
+         _randomPrompt= _prompts[randomNumber];
+
+        return _randomPrompt;
+
+        //Display a random prompt from the prompts list
+       // Console.WriteLine((string)_prompts[randomNumber]);
     }
 
 }

@@ -73,6 +73,12 @@ public class Menu
         }
         } while (_choice != "5");
     }
+
+    public void ExitProgram()
+        {
+            System.Environment.Exit(0);
+        }
+    
 }
     
             

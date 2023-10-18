@@ -12,10 +12,7 @@ public class Reference
     //The first constructor is the default for the basic requirement
     public Reference()
     {
-        _book = "2 Nephi";
-        _chapter = 1;
-        _verse1 = 15;
-        Console.WriteLine($"{_book} {_chapter}:{_verse1}: ");
+             
     }
 
     //Constructor that is patterned like the default
@@ -25,7 +22,7 @@ public class Reference
         _book = book;
         _chapter = chapter;
         _verse1 = startVerse;
-        Console.WriteLine($"{book} {chapter}:{startVerse}:");
+       //Console.WriteLine($"{book} {chapter}:{startVerse}:");
     }
 
     //Constructor that can set values for _book, _chapter, 
@@ -36,8 +33,23 @@ public class Reference
         _chapter = chapter;
         _verse1 = startVerse;
         _lastVerse = endVerse;
-        Console.WriteLine($"{book} {chapter}:{startVerse}-{endVerse}:");
+        //Console.WriteLine($"{book} {chapter}:{startVerse}-{endVerse}:");
     }
+
+    //Method to get the reference of one verse
+    public string GetReferenceOneVerse()
+    {
+        string oneVerse = $"{_book} {_chapter}:{_verse1}:";
+        return oneVerse;
+    }
+
+    //Metho to get the reference of two verses
+    public string GetReferenceMultiVerses()
+    {
+        string multiVerses = $"{_book} {_chapter}:{_verse1}-{_lastVerse}";
+        return multiVerses;
+    }
+    
 
 
 }

@@ -18,7 +18,7 @@ public class Reference
         Console.WriteLine($"{_book} {_chapter}:{_verse1}: ");
     }
 
-    //Constructor that is patterne like the default
+    //Constructor that is patterned like the default
     //but it can set different values to the attributes
     public Reference(string book, int chapter, int startVerse)
     {
@@ -26,6 +26,17 @@ public class Reference
         _chapter = chapter;
         _verse1 = startVerse;
         Console.WriteLine($"{book} {chapter}:{startVerse}:");
+    }
+
+    //Constructor that can set values for _book, _chapter, 
+    //_verse1 and _lastVerse
+    public Reference(string book, int chapter, int startVerse, int endVerse)
+    {
+        _book = book;
+        _chapter = chapter;
+        _verse1 = startVerse;
+        _lastVerse = endVerse;
+        Console.WriteLine($"{book} {chapter}:{startVerse}-{endVerse}:");
     }
 
 

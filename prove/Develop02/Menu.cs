@@ -60,6 +60,9 @@ public class Menu
                 break;
 
             case "3":
+                //set a prompt to ask user for filename
+                //with the input set to filename as a variable
+                //then pass the filename variable into the savetofile method
                 myJournal.SaveToFile();
                 break;
 

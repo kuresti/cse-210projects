@@ -10,7 +10,7 @@ public class JournalEntry
    public string _todayDate;
    
 
-   public List<string> entry = new List<string>();
+   public List<JournalEntry> entry = new List<JournalEntry>();
 
     //New instance of PromptGenerator Class
     PromptGenerator newPrompt = new PromptGenerator();

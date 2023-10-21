@@ -14,14 +14,14 @@ public class Journal
    public string _prompt;
    public string _todayDate;
   
-    public string _fileName =  "MyJournal.txt";
+    public string _fileName;
    public string _journalFile;
 
    
    public string _entry;
 
 
-     public List<string> entry = new List<string>();
+     public List<string> entry/*entries*/ = new List<string>();
 
     //New instance of PromptGenerator Class
     PromptGenerator newPrompt = new PromptGenerator();
@@ -59,10 +59,10 @@ public class Journal
     }
 
     //Behaviors of Journal class
-    public void LoadJournal()
+    public void LoadJournal()//needs a parameter
     {
         
-            Console.Write("Please enter the file name (MyJournal.txt): ");
+            Console.Write("Please enter the file name (MyJournal.txt): ");//take this out
             Console.ReadLine();
             Console.WriteLine("Loading file....");
 
@@ -75,15 +75,16 @@ public class Journal
                
     }
 
-   public void SaveToFile()
+   public void SaveToFile(string fileName)
    {
-    using (StreamWriter outputFile = new StreamWriter(@"C:\Users\kures\OneDrive\Documents\byuiClasses\cse-210projects\prove\Develop02\MyJournal.txt", true))
+    using (StreamWriter outputFile = new StreamWriter(fileName /*true*/)) //filename is not a bool term
     {
+
         Console.WriteLine("Saving to file...");
 
         //A for loop to iterate through the string list
         //and save items in list to MyJournal.txt
-        foreach (string e in entry)
+        foreach (string e in entry/*entries*/)
             {
                 outputFile.WriteLine(e);
             }

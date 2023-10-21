@@ -2,53 +2,40 @@ using System;
 
 public class Reference
 {
-    //Private attributes of the Reference class
-    private string _book;
-    private int _chapter;
-    private int _verse1;
-    private int _lastVerse;
+   //Private attributes of the Reference class
+   private string _book;
+   private string _chapter;
+   private string _startVerse;
+   private string _lastVerse;
 
-    //Constructors for the Reference class
-    //The first constructor is the default for the basic requirement
-    public Reference()
-    {
-             
-    }
-
-    //Constructor that is patterned like the default
-    //but it can set different values to the attributes
-    public Reference(string book, int chapter, int startVerse)
-    {
+   //Reference constructor that give the reference of one verse
+   public Reference(string book, string chapter, string beginVerse)
+   {
         _book = book;
         _chapter = chapter;
-        _verse1 = startVerse;
-       //Console.WriteLine($"{book} {chapter}:{startVerse}:");
-    }
+        _startVerse = beginVerse;
+        Console.WriteLine($"{book} {chapter}:{beginVerse}: ");
+   }
 
-    //Constructor that can set values for _book, _chapter, 
-    //_verse1 and _lastVerse
-    public Reference(string book, int chapter, int startVerse, int endVerse)
-    {
-        _book = book;
-        _chapter = chapter;
-        _verse1 = startVerse;
-        _lastVerse = endVerse;
-        //Console.WriteLine($"{book} {chapter}:{startVerse}-{endVerse}:");
-    }
+   //Reference constructor that gives the reference for multiple verses
+   public Reference(string book, string chapter, string beginVerse, string endVerse)
+   {
+     _book = book;
+     _chapter = chapter;
+     _startVerse = beginVerse;
+     _lastVerse = endVerse;
+     Console.WriteLine($"{book} {chapter}:{beginVerse}-{endVerse}: ");
+   }
 
-    //Method to get the reference of one verse
-    public string GetReferenceOneVerse()
-    {
-        string oneVerse = $"{_book} {_chapter}:{_verse1}:";
-        return oneVerse;
-    }
+   //Method to check whether the passage is one verse or multiple verses
+   public string GetReferenceString()
+   {
+    if(_lastVerse == null)
+        return $"{_book} {_chapter}:{_startVerse}: ";
+    else
+        return $"{_book} {_chapter}:{_startVerse}-{_lastVerse}: ";
+   }
 
-    //Metho to get the reference of two verses
-    public string GetReferenceMultiVerses()
-    {
-        string multiVerses = $"{_book} {_chapter}:{_verse1}-{_lastVerse}";
-        return multiVerses;
-    }
     
 
 

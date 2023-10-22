@@ -4,6 +4,13 @@ class Program
 {
     static void Main(string[] args)
     {
+
+        /* Stretch Portion: I used a while loop iwthan if statement
+        to check if a word was hidden. If it is already hidden it will 
+        loop again to fine the next unhidden word. This is done in the 
+        Scripture class in the HideWords method.*/
+
+
         //Instantiateing the Reference and Scripture classes 
         //including passing the Reference and text information
         //as parameters in the Class Constructors

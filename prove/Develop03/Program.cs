@@ -8,6 +8,7 @@ class Program
         //including passing the Reference and text information
         //as parameters in the Class Constructors
         Reference reference = new Reference("2 Nephi", "1", "15");
+
         //Console.WriteLine(reference.GetReferenceString());
         Scripture scripture = new Scripture("But behold, the Lord hath redeemed by soul from hell; I have beheld his glory, and I am encircled about eternally in the arms of his love.", reference);
     
@@ -20,6 +21,7 @@ class Program
             Console.Clear();
             scripture.DisplayScripture();
             Console.WriteLine("\nPress Enter to continue or type 'quit' to exit the program.");
+
 
             string userInput = Console.ReadLine();
             if (userInput == "quit")

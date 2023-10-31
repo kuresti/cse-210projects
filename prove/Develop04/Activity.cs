@@ -7,12 +7,20 @@ public class Activity
     protected string _activityDescription;
     protected int _timeInput;
 
-    //Activity class contructor
+    //Activity class contructor for welcome message
     public Activity(string name, string description )
     {        
         _activityName = name;
         _activityDescription = description;
     }
+
+    //Activity class constructor for end message
+    public Activity(string name)
+    {
+        _activityName = name;
+    }
+
+
     
     //Method to get the time that the user
     //inputs. To use in the child activities.
@@ -21,13 +29,7 @@ public class Activity
         return _timeInput;
     }
 
-    //Method sets the _timeInput attribute to
-    //equal duration
-    //public void SetTimeInput()
-    //{
-     //   _timeInput = duration;
-    //}
-    
+        
     //Method to Display the Welcome message for
     //all three activities
     public void DisplayWelcomeMessage(string activityName, string activityDescription)
@@ -43,5 +45,15 @@ public class Activity
         _timeInput = int.Parse(Console.ReadLine());
 
     } 
+
+    //End of activity method
+    public void DisplayEndMessage(string activityName)
+    {
+        //Call GetTimeInput
+        int duration = GetTimeInput();
+        //End message
+        Console.WriteLine("Well done!!");
+        Console.WriteLine($"You have completed another {duration} seconds of the {activityName}.");
+    }
 
 }

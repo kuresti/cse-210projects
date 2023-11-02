@@ -6,6 +6,7 @@ public class Activity
     protected string _activityName;
     protected string _activityDescription;
     protected int _timeInput;
+    protected int _countDownTime;
 
     //Activity class contructor for welcome message
     public Activity(string name, string description )
@@ -18,6 +19,12 @@ public class Activity
     public Activity(string name)
     {
         _activityName = name;
+    }
+
+    //Activity class constructor for CountDown display
+    public Activity(int seconds)
+    {
+        _countDownTime = seconds;
     }
 
 
@@ -67,13 +74,14 @@ public class Activity
         fishStrings.Add("~~~~~><(((('>");
         fishStrings.Add("~~~~><(((('<");
         
-
-       
+       //This piece tells the animation how long to run
        DateTime startTime = DateTime.Now;
        DateTime endTime = startTime.AddSeconds(5);
 
        int i = 0;
-
+       //This loop runs the animated fish at one second
+       //increments as long as the current time is less than
+       //the set endTime
        while (DateTime.Now < endTime)
        {
         string fish = fishStrings[i];
@@ -82,6 +90,9 @@ public class Activity
         Console.Write("\b\b\b\b\b\b\b\b\b\b\b\b\b  \b");
 
         i++;
+
+        //This if statement allows the animation to restart
+        //at the 0 index if the time run exceeds the fishStrings length count.
         if (i >= fishStrings.Count)
         {
             i = 0;
@@ -89,5 +100,16 @@ public class Activity
        }
         //For testing
         //Console.WriteLine("Done."); 
+    }
+
+    //This method will display a countdown
+    public void DisplayCountDown(int seconds)
+    {
+        for (; seconds > 0; seconds--)
+        {
+            Console.Write(seconds);
+            Thread.Sleep(1000);
+            Console.Write("\b \b");
+        }
     }
 }

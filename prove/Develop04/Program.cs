@@ -14,6 +14,8 @@ class Program
 
         newActivity.DisplayAnimation();
 
+        newActivity.DisplayCountDown(5);
+
         //Calling Menu class and DisplayMenu method
         Menu newMenu = new Menu();
         newMenu.DisplayMenu();

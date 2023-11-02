@@ -51,9 +51,43 @@ public class Activity
     {
         //Call GetTimeInput
         int duration = GetTimeInput();
+
+        //
         //End message
         Console.WriteLine("Well done!!");
+
         Console.WriteLine($"You have completed another {duration} seconds of the {activityName}.");
     }
 
+    //Animation Method that has the program pause while showing an animation
+    // ><(((('> , ><(((('<
+    public void DisplayAnimation()
+    {
+        List<string> fishStrings = new List<string>();
+        fishStrings.Add("~~~~~><(((('>");
+        fishStrings.Add("~~~~><(((('<");
+        
+
+       
+       DateTime startTime = DateTime.Now;
+       DateTime endTime = startTime.AddSeconds(5);
+
+       int i = 0;
+
+       while (DateTime.Now < endTime)
+       {
+        string fish = fishStrings[i];
+        Console.Write(fish);
+        Thread.Sleep(1000);
+        Console.Write("\b\b\b\b\b\b\b\b\b\b\b\b\b  \b");
+
+        i++;
+        if (i >= fishStrings.Count)
+        {
+            i = 0;
+        }
+       }
+        //For testing
+        //Console.WriteLine("Done."); 
+    }
 }

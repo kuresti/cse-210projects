@@ -12,6 +12,8 @@ class Program
 
         newActivity.DisplayEndMessage("Breathing");
 
+        newActivity.DisplayAnimation();
+
         //Calling Menu class and DisplayMenu method
         Menu newMenu = new Menu();
         newMenu.DisplayMenu();

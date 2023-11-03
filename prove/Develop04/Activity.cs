@@ -56,7 +56,7 @@ public class Activity
 
         //
         //End message
-        Console.WriteLine("Well done!!");
+        Console.WriteLine("\nWell done!!");
         DisplayAnimation();
 
         Console.WriteLine($"\nYou have completed another {duration} seconds of the {activityName}.");
@@ -73,7 +73,7 @@ public class Activity
         
        //This piece tells the animation how long to run
        DateTime startTime = DateTime.Now;
-       DateTime endTime = startTime.AddSeconds(5);
+       DateTime endTime = startTime.AddSeconds(6);
 
        int i = 0;
        //This loop runs the animated fish at one second

@@ -25,7 +25,7 @@ public class BreathingActivity : Activity
         DateTime endTime = ActivityRunTime();
 
        int i = 0;
-       //This loop will rund the breathing activity as long as
+       //This loop will run the breathing activity as long as
        //The current time is less than the endTime
        while (DateTime.Now < endTime)
        {

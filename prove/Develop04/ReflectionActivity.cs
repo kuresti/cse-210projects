@@ -7,24 +7,44 @@ public class ReflectionActivity : Activity
 
     private string _newPrompt;
     private string _randomQuestion;
+    private string _newQuestion;
 
+    //Empty list of used questions
+    private List<string> _usedQuestions = new List<string>();
 
-    
-    //List that holds questions to reflect on the previous prompt experience
-    // List<string> questions = new List<string>();
-    // questions.Add("Why was this experience meaningful to you?");
-    // questions.Add("Have you ever done anything like this before?");
-    // questions.Add("How did you get started?");
-    // questions.Add("How did you feel when it was complete?");
-    // questions.Add("What made this time different than other times when you were not as successful?");
-    // questions.Add("What is your favorite thing about this experience?");
-    // questions.Add("What could you learn from this experience that applies to other situations?");
-    // questions.Add("What did you learn about yourself through this experience?");
-    // quesitons.Add("How can you keep this experience in mind in the future?");
+    //Lists to hold prompts and questions that will be initilized
+    //in the constructor
+    private List<string> _prompts;
+    private List<string> _questions;
+
+    //Create an instance of a randomizer
+    private static Random random = new Random();     
 
     //Constructor for the ReflectionActivity
     public ReflectionActivity(string name, string description) : base(name, description)
-    {           
+    {    
+        //Initialize _prompts list
+        _prompts = new List<string>
+        {
+            "Think of a time when you stood up for someone else.",
+            "Think of a time when you did something really difficult.",
+            "Think of a time when you helped someone in need",
+            "Think of a time when you did something truly selfless"
+        };
+
+        //Initialize _questions list
+        _questions = new List<string>
+        {
+            "Why was this experience meaningful to you?",
+            "Have you ever done anything like this before?",
+            "How did you get started?",
+            "How did you feel when it was complete?",
+            "What made this time different than other times when you were not as successful?",
+            "What is your favorite thing about this experience?",
+            "What could you learn from this experience that applies to other situations?",
+            "What did you learn about yourself through this experience?",
+            "How can you keep this experience in mind in the future?"
+        };     
     }
 
     public void StartReflection()
@@ -47,35 +67,60 @@ public class ReflectionActivity : Activity
         //Instruction message for continuing on
         Console.WriteLine("\nNow ponder on each of the following questions as they related to this experience.");
         Console.Write("\nYou may begin in:");
-        DisplayCountDown(5);       
+        DisplayCountDown(5); 
 
-        //Call Animation method
-        DisplayAnimation();
+        //Inside the while loop random questions will be shown
+        //for 8 seconds and then change until runTime is done.
+         while (DateTime.Now < endTime)
+         {
+            for (int i = 0; i < 8; i++)
+            {
+            //Call DisplayRandomQuestion
+            _randomQuestion = DisplayRandomQuestion();
+            Console.WriteLine($"\n{_randomQuestion}"); 
+             //Call Animation method
+            DisplayAnimation();
        
+            }
 
-        
+         }
+         DisplayEndMessage("Reflection Activity");        
     }
 
-    //Method to dispaly random prompts for the reflection activity
+    //Method to display random prompts for the reflection activity
     public string DisplayRandomPrompt()
     {
-        //List that holds the prompts for reflection
-        List<string> _prompts = new List<string>();
-        _prompts.Add("Think of a time when you stood up for someone else.");
-        _prompts.Add("Think of a time when you did something really difficult.");
-        _prompts.Add("Think of a time when you helped someon in need");
-        _prompts.Add("Think of a time when you did something truly selfless");
-
-        //Create an instance of a randomizer
-        Random prompt = new Random();
-
         //Using .Next method, give randomizer a parameter to find the
         //max number of items in the list
-        int randomNumber = prompt.Next(_prompts.Count);
+        int randomNumber = random.Next(_prompts.Count);
 
         _newPrompt = _prompts[randomNumber];
 
         return _newPrompt;
+    }
+
+    //Method to display random questions to ponder for the reflection activity
+    public string DisplayRandomQuestion()
+    {
+        
+        if (_questions.Count == 0)
+        {
+            //When all questions are used, reset the list
+            _questions.AddRange(_usedQuestions);
+            _usedQuestions.Clear();
+        }
+
+        //Using .Next method, give randomizer a parameter to find the
+        //max number of items in the question list
+        int index = random.Next(_questions.Count);
+
+        _newQuestion = _questions[index];
+
+        //Move the used question from the _questions list to _usedQuestions list
+        _questions.RemoveAt(index);
+        _usedQuestions.Add(_newQuestion);
+
+        return _newQuestion;
     }
 
 

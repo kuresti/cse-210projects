@@ -15,17 +15,14 @@ public class BreathingActivity : Activity
     {
         //Welcome message
         DisplayWelcomeMessage("Breathing Activity","This activity will help you relax by walking you thorugh breathing in and out slowly. Clear your mind and focus on your breathing.");
-        //Getting the value from _getTimeInput 
-        int duration = GetTimeInput();
-
+        
         //Created a string of breathe in and breath out
         List<string> breaths = new List<string>();
         breaths.Add(_breathIn);
         breaths.Add(_breathOut);
 
         //This piece tells how long to run the breathing activity
-       DateTime startTime = DateTime.Now;
-       DateTime endTime = startTime.AddSeconds(duration);
+        DateTime endTime = ActivityRunTime();
 
        int i = 0;
        //This loop will rund the breathing activity as long as

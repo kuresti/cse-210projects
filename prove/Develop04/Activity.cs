@@ -28,16 +28,6 @@ public class Activity
     {
         _countDownTime = seconds;
     }
-
-
-    
-    //Method to get the time that the user
-    //inputs. To use in the child activities.
-    public int GetTimeInput()
-    {
-        return _timeInput;
-    }
-
         
     //Method to Display the Welcome message for
     //all three activities
@@ -62,7 +52,7 @@ public class Activity
     public void DisplayEndMessage(string activityName)
     {
         //Call GetTimeInput
-        int duration = GetTimeInput();
+        int duration = _timeInput;
 
         //
         //End message
@@ -119,5 +109,16 @@ public class Activity
             Thread.Sleep(1000);
             Console.Write("\b \b");
         }
+    }
+
+    //This method will set how long an activity will run using the user's input
+    public DateTime ActivityRunTime()
+    {
+        //This will set the runtime by adding the user's time input to the starttime
+        DateTime startTime = DateTime.Now;
+        DateTime endTime = startTime.AddSeconds(_timeInput);
+
+        return endTime;
+
     }
 }

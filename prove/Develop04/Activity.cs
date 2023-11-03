@@ -9,7 +9,7 @@ public class Activity
     protected int _countDownTime;
 
     //Activity class contructor for welcome message
-    public Activity(string name, string description )
+    public Activity(string name, string description)
     {        
         _activityName = name;
         _activityDescription = description;
@@ -20,6 +20,8 @@ public class Activity
     {
         _activityName = name;
     }
+
+    //Activity class constructor for 
 
     //Activity class constructor for CountDown display
     public Activity(int seconds)
@@ -51,6 +53,9 @@ public class Activity
         Console.WriteLine("\nHow long, in seconds, would you like for your session? ");
         _timeInput = int.Parse(Console.ReadLine());
 
+        Console.Clear();
+        Console.WriteLine("Get ready...");
+        DisplayAnimation();
     } 
 
     //End of activity method
@@ -62,8 +67,10 @@ public class Activity
         //
         //End message
         Console.WriteLine("Well done!!");
+        DisplayAnimation();
 
-        Console.WriteLine($"You have completed another {duration} seconds of the {activityName}.");
+        Console.WriteLine($"\nYou have completed another {duration} seconds of the {activityName}.");
+        DisplayAnimation();
     }
 
     //Animation Method that has the program pause while showing an animation
@@ -86,8 +93,9 @@ public class Activity
        {
         string fish = fishStrings[i];
         Console.Write(fish);
-        Thread.Sleep(1000);
-        Console.Write("\b\b\b\b\b\b\b\b\b\b\b\b\b  \b");
+        Thread.Sleep(500);
+        Console.Write("\b\b\b\b\b\b\b\b\b\b\b\b\b             \b");
+        
 
         i++;
 

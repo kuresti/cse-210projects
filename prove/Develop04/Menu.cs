@@ -13,6 +13,9 @@ public class Menu
     {
     }
 
+    //Initializing the Breathing Activity instance
+    BreathingActivity breathingActivity = new BreathingActivity("Breathing Activity", "This activity will help you relax by walking you through breathing in and out slowly. Clear your mind and focus on your breathing." );
+
     //Method to display a menu from which a 
     //user can make a choice
     public void DisplayMenu()
@@ -43,6 +46,7 @@ public class Menu
             switch(_userChoice)
             {
                 case "1":
+                    breathingActivity.StartBreathing();
                     break;
                 case "2":
                     break;

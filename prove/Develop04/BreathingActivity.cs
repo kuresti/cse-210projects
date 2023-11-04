@@ -14,9 +14,9 @@ public class BreathingActivity : Activity
     public void StartBreathing()
     {
         //Welcome message
-        DisplayWelcomeMessage("Breathing Activity","This activity will help you relax by walking you thorugh breathing in and out slowly. Clear your mind and focus on your breathing.");
+        DisplayWelcomeMessage("Breathing Activity","This activity will help you relax by walking you through breathing in and out slowly. Clear your mind and focus on your breathing.");
         
-        //Created a string of breathe in and breath out
+        //Created a string of breathe in and breathe out
         List<string> breaths = new List<string>();
         breaths.Add(_breathIn);
         breaths.Add(_breathOut);
@@ -30,7 +30,7 @@ public class BreathingActivity : Activity
        while (DateTime.Now < endTime)
        {
         string breath = breaths[i];
-        Console.WriteLine($"\n{breath}"); 
+        Console.Write($"\n{breath}"); 
         
 
         //This will display the countdown for breathing in

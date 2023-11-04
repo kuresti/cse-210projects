@@ -18,6 +18,9 @@ public class Menu
     
     //Initialize the Reflection Activity instance
     ReflectionActivity reflectionActivity = new ReflectionActivity("Reflection Activity", "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.");
+
+    //Initialize the Listing Activity instance
+    ListingActivity listingActivity = new ListingActivity("Reflection Activity", "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize thepower you have and how you can use it in other aspects of your life.");
     
     //Method to display a menu from which a 
     //user can make a choice
@@ -43,6 +46,7 @@ public class Menu
             else
             {
                 Console.WriteLine("\nYour choice is not valid. Please try again.\n");
+                Thread.Sleep(4000);
             }
 
             //A switch case of menu options that starts
@@ -56,6 +60,7 @@ public class Menu
                     reflectionActivity.StartReflection();
                     break;
                 case "3":
+                    listingActivity.StartListingActivity();
                     break;
                 case "4":
                     break;

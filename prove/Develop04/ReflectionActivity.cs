@@ -50,7 +50,7 @@ public class ReflectionActivity : Activity
     public void StartReflection()
     {
         //Welcome Message from the base class: Activity
-        DisplayWelcomeMessage("Reflection Activity", "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize thepower you have and how you can use it in other aspects of your life.");
+        DisplayWelcomeMessage("Reflection Activity", "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life");
 
         //This piece tells how long to run the reflectionvity
         DateTime endTime = ActivityRunTime();
@@ -69,23 +69,27 @@ public class ReflectionActivity : Activity
         Console.Write("\nYou may begin in:");
         DisplayCountDown(5); 
 
+        //Clear method to clear the console before questions are listed
+        Console.Clear();
+
         //Inside the while loop random questions will be shown
         //for 8 seconds and then change until runTime is done.
          while (DateTime.Now < endTime)
          {
-            for (int i = 0; i < 8; i++)
-            {
+            
             //Call DisplayRandomQuestion
-            _randomQuestion = DisplayRandomQuestion();
-            Console.WriteLine($"\n{_randomQuestion}"); 
-             //Call Animation method
-            DisplayAnimation();
-       
-            }
+             _randomQuestion = DisplayRandomQuestion(); 
+             Console.WriteLine($"\n{_randomQuestion}"); 
 
-         }
-         DisplayEndMessage("Reflection Activity");        
+             //Call Animation method
+             DisplayAnimation(); 
+       
+        }
+        //Call DisplayEndMessage from base
+        DisplayEndMessage("Reflection Activity");      
     }
+             
+    
 
     //Method to display random prompts for the reflection activity
     public string DisplayRandomPrompt()

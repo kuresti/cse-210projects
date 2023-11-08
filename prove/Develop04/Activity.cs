@@ -2,13 +2,13 @@ using System;
 
 public class Activity
 {
-    //Attributes of the Acitivy class
+    //Attributes of the Activity class
     protected string _activityName;
     protected string _activityDescription;
     protected int _timeInput;
     protected int _countDownTime;
 
-    //Activity class contructor for welcome message
+    //Activity class constructor for welcome message
     public Activity(string name, string description)
     {        
         _activityName = name;

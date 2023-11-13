@@ -46,6 +46,7 @@ public class Menu
             switch(_userChoice)
             {
                 case "1":
+                    DisplayGoalTypesMenu();
                     break;
                 case "2":
                     break;
@@ -59,5 +60,40 @@ public class Menu
                     break;
             }
         }while (_userChoice != "6");
+    }
+
+    // Display Goal types Menu
+    public void DisplayGoalTypesMenu()
+    {
+        Console.WriteLine("The types of Goals are:");
+        Console.WriteLine("1. Simple Goal");
+        Console.WriteLine("2. Eternal Goal");
+        Console.WriteLine("3. Checklist Goal");
+        Console.Write("Which type of goal would you like to create? ");
+
+        //Get _userChoice
+        _userChoice = Console.ReadLine();
+
+        //Validate _userChoice
+        if (_userChoice == "1" || _userChoice == "2" || _userChoice == "3")
+        {
+            _validChoice = true;
+        }
+        else
+        {
+            Console.WriteLine("\nYour choice is not valid. Please try again.\n");
+            Thread.Sleep(4000);
+        }
+
+        //switch case for menu choices
+        switch(_userChoice)
+        {
+            case "1":
+                break;
+            case "2":
+                break;
+            case "3":
+                break;
+        }
     }
 }

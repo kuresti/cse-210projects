@@ -13,6 +13,9 @@ public class Menu
 
     }
 
+    //SimpleGoal class instantiated
+    SimpleGoal simplegoal = new SimpleGoal();
+
     //Method to Display Menu
     public void DisplayMenu()
     {
@@ -89,6 +92,7 @@ public class Menu
         switch(_userChoice)
         {
             case "1":
+                simplegoal.CreateGoal();
                 break;
             case "2":
                 break;

@@ -10,6 +10,8 @@ class Program
         {
             Menu newMenu = new Menu();
             newMenu.DisplayMenu();
+
+            
             
         }
     

@@ -1,0 +1,1 @@
+SimpleGoal|Teach a lesson|Teach a lesson when asked|100|False

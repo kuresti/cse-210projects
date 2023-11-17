@@ -1,9 +1,13 @@
  using System;
+ using System.Collections.Generic;
+ using System.IO;
 
 public class GoalManager
  {
      //Attributes of Menu
      private string _userChoice;
+     private string _fileName;
+
      //private int _score;
      //private List<Goal> _goals = new List<Goal>();
      public List<Goal> saveGoals {get; private set;}
@@ -26,7 +30,7 @@ public class GoalManager
         string goalName;
         string goalDescription;
         int pointValue;
-         string _userChoice;
+         //string _userChoice;
         // int bonus;
         // int target;
         // do
@@ -65,21 +69,21 @@ public class GoalManager
 
                  break;
              case "2":
-                // //User creates an eternal goal by answering prompts
-                // Console.Write("What is the name of your goal? ");
-                // goalName = Console.ReadLine();
+                //User creates an eternal goal by answering prompts
+                Console.Write("What is the name of your goal? ");
+                goalName = Console.ReadLine();
 
-                // Console.Write("What is a short description of your goal? " );
-                // goalDescription = Console.ReadLine();
+                Console.Write("What is a short description of your goal? " );
+                goalDescription = Console.ReadLine();
 
-                // Console.Write("What is the amount of points associated with this goal? ");
-                // pointValue = int.Parse(Console.ReadLine());
+                Console.Write("What is the amount of points associated with this goal? ");
+                pointValue = int.Parse(Console.ReadLine());
 
-                // //New instance of Eternal goal with parameters
-                // EternalGoal eternal = new(goalName, goalDescription, pointValue);
+                //New instance of Eternal goal with parameters
+                EternalGoal eternal = new(goalName, goalDescription, pointValue);
 
-                // //Adds created eternal goal to list
-                // saveGoals.Add(eternal);
+                //Adds created eternal goal to list
+                saveGoals.Add(eternal);
                  break;
              case "3":
 
@@ -120,6 +124,83 @@ public class GoalManager
              Console.WriteLine($"{i + 1}. {saveGoals[i].GetGoalString()}");
          } 
      }
+
+     public void Save()
+    {
+        //  PUT "Enter the filename: "
+        Console.Write("Please enter a filename: ");
+        // List<Goal> saveGoals = gm.get_saveGoals();
+    
+        _fileName = Console.ReadLine();
+
+        
+        using (StreamWriter outputFile = new StreamWriter(_fileName))
+        {
+            foreach (Goal goal in saveGoals)
+            {
+                outputFile.WriteLine(goal.GetSaveString());
+            }
+            Console.WriteLine($"Your goals are saved to {_fileName}");
+        }
+    }
+
+    //Method to Load or read Goals from a file
+    public List<Goal> Load()
+    {
+        //Prompt for filename from the user
+        Console.Write("Please enter your filename: ");
+
+        //Get filename from userInput
+        _fileName = Console.ReadLine();
+
+        //Using the IO system, read lines from the file
+        string[] lines = System.IO.File.ReadAllLines(_fileName);
+
+        //For loop to iterate thorugh the lines list
+        foreach (string line in lines)
+        {
+            //Split the line into parts based on the colon
+            string[] colonParts = line.Split(":");
+            string goalType = colonParts[0];
+            string goalDetails = colonParts[1];
+
+            //New instance of Goal
+            Goal newGoal = CreateGoalFromDetails(goalType, goalDetails);
+
+            //Add the new goal to the existing list
+            saveGoals.Add(newGoal);
+        } 
+        //Return list
+        return saveGoals;
+    }
+    
+    //Method to create a goal from the Details
+    private Goal CreateGoalFromDetails(string goalType, string goalDetails)
+    {
+        switch(goalType)
+        {
+            case "SimpleGoal":
+                string[] detailsParts = goalDetails.Split("|");
+                string goalName = detailsParts[0];
+                string goalDescription = detailsParts[1];
+                int pointValue = int.Parse(detailsParts[2]);
+                bool isComplete = bool.Parse(detailsParts[3]);
+
+                //New instance of SimpleGoal
+                return new SimpleGoal(goalName, goalDescription, pointValue, isComplete);
+
+                //default
+                default:
+                    throw new ArgumentException($"Uknown goalType: {goalType}");
+                
+
+        }
+        
+    }
+
+   
+
+       
 
 //     //  PUBLIC RecordEvent()        NOTE: Select the goal to execute the .RecordEvent()
 //     //      DisplayGoals()

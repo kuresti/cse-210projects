@@ -9,12 +9,18 @@ class Program
 
     static void Main(string[] args)
     {   
-        GoalManager gm = new();
-        FileManager fm = new FileManager(gm.saveGoals);
+        GoalManager gm = new GoalManager();
+        //FileManager fm = new FileManager(gm.saveGoals);
+
+        //Score attribute
+        int _score = 0;
         
         string _userChoice;
         do
         {
+            //Statement that keeps score
+            Console.WriteLine($"\nYour score is {_score}");
+
             // Console.Clear();
             Console.WriteLine("\nMenu Options:\n");
             Console.WriteLine("1. Create New Goal");
@@ -42,11 +48,29 @@ class Program
                    // Console.ReadLine();
                     break;
                 case "3":
-                    fm.Save();
+                    gm.Save();
                     break;
                 case "4":
+                    gm.Load();
                     break;
                 case "5":
+                    Console.Write("Choose a goal to record progress on. \n");
+                    gm.DisplayGoals();
+                    string userInputString = Console.ReadLine();
+
+                    //if statement to validate user's input
+                    if(int.TryParse(userInputString, out int userInput)  && userInput >= 1 && userInput <= gm.saveGoals.Count)
+                    {
+                        Goal selectedGoal = gm.saveGoals[userInput - 1];
+                         _score += gm.saveGoals[userInput - 1].RecordEvent();
+
+                         //update selected goal in the saveGoals selected index
+                         gm.saveGoals[userInput - 1] = selectedGoal;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid choice. Please enter a valid number.");
+                    }                   
                     break;
                 case "6":
                     break;

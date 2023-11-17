@@ -1,1 +1,2 @@
-SimpleGoal|Teach a lesson|Teach a lesson when asked|100|False
+SimpleGoal:Go to Spain|Plan a trip and go to Spain|500|True
+SimpleGoal:Cook a turkey|Buy a turkey and cook it|50|False

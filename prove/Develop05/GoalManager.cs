@@ -30,6 +30,8 @@ public class GoalManager
         string goalName;
         string goalDescription;
         int pointValue;
+        int bonus;
+        int target;
          //string _userChoice;
         // int bonus;
         // int target;
@@ -87,26 +89,26 @@ public class GoalManager
                  break;
              case "3":
 
-                // // User creates a simple goal by answering prompts
-                // Console.Write("What is the name of your goal? ");
-                // goalName = Console.ReadLine();
+                // User creates a simple goal by answering prompts
+                Console.Write("What is the name of your goal? ");
+                goalName = Console.ReadLine();
 
-                // Console.Write("What is a short description of your goal? ");
-                // goalDescription = Console.ReadLine();
+                Console.Write("What is a short description of your goal? ");
+                goalDescription = Console.ReadLine();
 
-                // Console.Write("What is the amount of points associated with this goal? ");
-                // pointValue = int.Parse(Console.ReadLine());
+                Console.Write("What is the amount of points associated with this goal? ");
+                pointValue = int.Parse(Console.ReadLine());
 
-                // Console.Write("What is the amount of points associate with the bonus for completing this goal? ");
-                // bonus = int.Parse(Console.ReadLine()); 
+                Console.Write("What is the amount of points associate with the bonus for completing this goal? ");
+                bonus = int.Parse(Console.ReadLine()); 
 
-                // Console.Write("How many times does this goal need to be accomplished for a bonus? ");
-                // target = int.Parse(Console.ReadLine());
-                // //New instance of ChecklistGoal with parameters
-                // ChecklistGoal checklist = new(goalName, goalDescription, pointValue, bonus, target);
+                Console.Write("How many times does this goal need to be accomplished for a bonus? ");
+                target = int.Parse(Console.ReadLine());
+                //New instance of ChecklistGoal with parameters
+                ChecklistGoal checklist = new(goalName, goalDescription, pointValue, bonus, target);
 
-                // //Add created Checklist goal to list                        
-                // saveGoals.Add(checklist);
+                //Add created Checklist goal to list                        
+                saveGoals.Add(checklist);
                  break;
              default:
                  Console.WriteLine("\nYour choice is not valid. Please try again.\n");
@@ -177,17 +179,49 @@ public class GoalManager
     //Method to create a goal from the Details
     private Goal CreateGoalFromDetails(string goalType, string goalDetails)
     {
+        
+        string goalName;
+        string goalDescription;
+        int bonus;
+        int pointValue;
+        int target;
+        int current;
+        bool isComplete;
         switch(goalType)
         {
             case "SimpleGoal":
-                string[] detailsParts = goalDetails.Split("|");
-                string goalName = detailsParts[0];
-                string goalDescription = detailsParts[1];
-                int pointValue = int.Parse(detailsParts[2]);
-                bool isComplete = bool.Parse(detailsParts[3]);
+                 string[] simpleDetailsParts = goalDetails.Split("|");
+                 goalName = simpleDetailsParts[0];
+                 goalDescription = simpleDetailsParts[1];
+                 pointValue = int.Parse(simpleDetailsParts[2]);
+                 isComplete = bool.Parse(simpleDetailsParts[3]);
 
                 //New instance of SimpleGoal
                 return new SimpleGoal(goalName, goalDescription, pointValue, isComplete);
+
+            case "EternalGoal":
+                 string[] eternalDetailsParts = goalDetails.Split("|");
+                 goalName = eternalDetailsParts[0];
+                 goalDescription = eternalDetailsParts[1];
+                 pointValue = int.Parse(eternalDetailsParts[2]);
+                 isComplete = bool.Parse(eternalDetailsParts[3]);
+
+                //New instance of EternalGoal
+                return new EternalGoal(goalName, goalDescription, pointValue, isComplete);
+
+            case "ChecklistGoal":
+                string[] checklistDetailParts = goalDetails.Split("|");
+                goalName = checklistDetailParts[0];
+                goalDescription = checklistDetailParts[1];
+                pointValue = int.Parse(checklistDetailParts[2]);
+                bonus = int.Parse(checklistDetailParts[3]);
+                target = int.Parse(checklistDetailParts[4]);
+                current = int.Parse(checklistDetailParts[5]);
+                isComplete = bool.Parse(checklistDetailParts[6]);
+
+                //New instance of  ChecklistGoal
+                return new ChecklistGoal(goalName, goalDescription, pointValue, isComplete, target, current, bonus);
+
 
                 //default
                 default:

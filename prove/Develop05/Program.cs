@@ -42,9 +42,10 @@ class Program
                 case "2":
                     // simpleGoal.ListGoals();
                     // //Pause the prgram to keep the console open
-                    // Console.WriteLine("Press Enter to continue.");
-                    // Console.ReadLine();
                     gm.DisplayGoals();
+                    Console.WriteLine("Press Enter to continue.");
+                    Console.ReadLine();
+                    
                    // Console.ReadLine();
                     break;
                 case "3":

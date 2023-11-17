@@ -1,0 +1,2 @@
+SimpleGoal:Visit Dad|Go to SaltLake and take him to lunch|200|False
+EternalGoal:Study Scriptures|Study at least 20 min before homework|50|False

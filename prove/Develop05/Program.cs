@@ -16,7 +16,7 @@ class Program
         do
         {
             // Console.Clear();
-            Console.WriteLine("Menu Options:");
+            Console.WriteLine("\nMenu Options:\n");
             Console.WriteLine("1. Create New Goal");
             Console.WriteLine("2. List Goals");
             Console.WriteLine("3. Save Goals");
@@ -39,7 +39,7 @@ class Program
                     // Console.WriteLine("Press Enter to continue.");
                     // Console.ReadLine();
                     gm.DisplayGoals();
-                    Console.ReadLine();
+                   // Console.ReadLine();
                     break;
                 case "3":
                     fm.Save();

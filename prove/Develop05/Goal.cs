@@ -10,7 +10,7 @@
      protected string _goalName;
      protected string _goalDescription;
      protected int _pointValue;
-     protected bool _isComplete;
+     protected bool _isComplete = false;
 
 
 
@@ -18,10 +18,8 @@
      public Goal(string goalName, string goalDescription, int pointValue)
      {
          _goalName = goalName;
-         Console.WriteLine("Initializing a goal");
          _goalDescription = goalDescription;
          _pointValue = pointValue;
-         _isComplete = false;
      }
 //     // Constructor for loading data from a file
 //     public Goal(string goalName, string goalDescription, int pointValue, bool isComplete)
@@ -41,32 +39,13 @@
     }
 
 
-    //Virtual methods of Goal
+         
+    //Abstract methods of Goal
 
-    //default virtual GetUserGoalInput method
-    public virtual void GetUserGoalInput()
-    {
-        // User creates a simple goal by answering prompts
-        Console.Write("What is the name of your goal? ");
-        goalName = Console.ReadLine();
+    public abstract string GetGoalString();
 
-        Console.Write("What is a short description of your goal? ");
-        goalDescription = Console.ReadLine();
-
-        Console.Write("What is the amount of points associated with this goal? ");
-        pointValue = int.Parse(Console.ReadLine());
-    }
    
-   
-    //default virtual GetGoalString method
-     public virtual string GetGoalString()
-     {
-         return $"[{GetIsCompleteChar()}] {_goalName}: {_goalDescription}";
-     }
-
-//    //Abstract methods of Goal
-   
-//     //public abstract int RecordEvent();
+    //public abstract int RecordEvent();
 
     public abstract string GetSaveString();
 

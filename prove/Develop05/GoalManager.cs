@@ -89,7 +89,7 @@ public class GoalManager
                  break;
              case "3":
 
-                // User creates a simple goal by answering prompts
+                // User creates a checklist goal by answering prompts
                 Console.Write("What is the name of your goal? ");
                 goalName = Console.ReadLine();
 
@@ -102,7 +102,7 @@ public class GoalManager
                 Console.Write("What is the amount of points associate with the bonus for completing this goal? ");
                 bonus = int.Parse(Console.ReadLine()); 
 
-                Console.Write("How many times does this goal need to be accomplished for a bonus? ");
+                Console.Write("How many times does this goal need to be accomplished to complete the goal? ");
                 target = int.Parse(Console.ReadLine());
                 //New instance of ChecklistGoal with parameters
                 ChecklistGoal checklist = new(goalName, goalDescription, pointValue, bonus, target);
@@ -215,12 +215,12 @@ public class GoalManager
                 goalDescription = checklistDetailParts[1];
                 pointValue = int.Parse(checklistDetailParts[2]);
                 bonus = int.Parse(checklistDetailParts[3]);
-                target = int.Parse(checklistDetailParts[4]);
-                current = int.Parse(checklistDetailParts[5]);
+                current = int.Parse(checklistDetailParts[4]);
+                target = int.Parse(checklistDetailParts[5]);
                 isComplete = bool.Parse(checklistDetailParts[6]);
 
                 //New instance of  ChecklistGoal
-                return new ChecklistGoal(goalName, goalDescription, pointValue, isComplete, target, current, bonus);
+                return new ChecklistGoal(goalName, goalDescription, pointValue, isComplete, current, target, bonus);
 
 
                 //default

@@ -1,0 +1,3 @@
+SimpleGoal:Visit Dad|Go to Salt Lake and take him to lunch|100|False
+EternalGoal:Study Scriptures|Study at least 20 min a day|50|False
+ChecklistGoal:Family History|Find a name to take to the temple|25|500|0|3|False

@@ -4,6 +4,10 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Foundation2 World!");
+        Address address = new Address("163 N 4039 E", "Rigby", "Idaho", "USA");
+
+        address.GetAddressString();
     }
+
+    
 }

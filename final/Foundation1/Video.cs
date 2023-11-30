@@ -13,22 +13,22 @@ public class Video
 
     
     //Constructor of Video class
-    public Video()
+    public Video(string title, string author, int videoLength)
     {
         //Instantiating attributes of the Video class
-        _title = "";
-        _author = "";
-        _videoLength = 0;
-        _numComments = 0;        
-        _videos = new List<Video>();
-        _comments = new List<Comment>(); 
+        _title = title;
+        _author = author;
+        _videoLength = videoLength;
+        //_numComments = numComments;        
+        // _videos = new List<Video>();
+        // _comments = new List<Comment>(); 
     }
 
     //Methods of Video
      public void NumberOfComments()
     {
         _numComments = _comments.Count();
-        Console.WriteLine($"There are {_numComments} comments for this video.");
+        Console.WriteLine($"--There are {_numComments} comments for this video.");
     }
 
     

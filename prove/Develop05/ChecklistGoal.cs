@@ -58,7 +58,7 @@ using System;
             //  _current++;
             // Console.WriteLine($"Congratulations! You have earned {_pointValue}");
             _isComplete = true;
-            Console.WriteLine("I am here");
+            //Console.WriteLine("I am here");
             _pointValue += _bonus;
             Console.WriteLine($"Congratluations! You have completed your Goal! You earned {_pointValue}!");
             DisplayAnimation();

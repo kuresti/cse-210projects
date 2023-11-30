@@ -9,17 +9,17 @@ public class Comment
     public string _text;
 
     //Comment class constructor
-    public Comment()
+    public Comment(string name, string text)
     {
-        _name = "";
-        _text = "";
+        _name = name;
+        _text = text;
     }
 
     //Display Comment method
     public void DisplayComments()
     {
-        Console.WriteLine($"Name of Commentor: {_name}");
-        Console.WriteLine($"Comment text: {_text}");
+        Console.WriteLine($"---Name of Commentor: {_name}");
+        Console.WriteLine($"---Comment text: {_text}");
     }
 
 }

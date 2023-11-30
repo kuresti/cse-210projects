@@ -31,6 +31,7 @@
       //GetSave string implemented from abstract method in Goal class
       public override string GetSaveString()
       {
+           
             return $"{GetType()}:{_goalName}|{_goalDescription}|{_pointValue}|{_isComplete}";
       }
 

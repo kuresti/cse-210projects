@@ -19,9 +19,7 @@ public class Video
         _title = title;
         _author = author;
         _videoLength = videoLength;
-        //_numComments = numComments;        
-        // _videos = new List<Video>();
-        // _comments = new List<Comment>(); 
+        
     }
 
     //Methods of Video

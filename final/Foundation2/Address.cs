@@ -50,7 +50,7 @@ public class Address
     //shipping label in the Order class
     public string GetAddressString()
     {
-        return $"{_streetAddress}\n {_city}, {_stateOrProvince}, {_country}";
+        return $"{_streetAddress}\n{_city}, {_stateOrProvince}, {_country}";
     }
 
     //Method to determine if the address is

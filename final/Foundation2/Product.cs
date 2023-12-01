@@ -38,10 +38,10 @@ public class Product
     //Constructor of Product
     public Product(string productName, int productID, decimal productPrice, int productQuantity)
     {
-        _productName = productName;
-        _productID = productID;
-        _productPrice = productPrice;
-        _productQuantity = productQuantity;
+        ProductName = productName;
+        ProductID = productID;
+        ProductPrice = productPrice;
+        ProductQuantity = productQuantity;
     }
 
     //Method of Product to calculate price of product

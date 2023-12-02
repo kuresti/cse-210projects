@@ -26,6 +26,6 @@ public class OutdoorGatheringEvent : Event
     //override method derived from Event
     public override string DisplayFullDetails()
     {
-        return $"{GetType()}\n{_eventTitle}\n{_description}\n{_date} {_time}\n{_weather}\n{EventAddress.GetAddressString()}";
+        return $"{GetType()}\n{_eventTitle}\nDescription: {_description}\nDate: {_date}\nTime: {_time}\n{_weather}\n{EventAddress.GetAddressString()}";
     }
 }

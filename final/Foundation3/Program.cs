@@ -6,8 +6,8 @@ class Program
     {
         //Instances of LectureEvent
         Address lecture = new Address("201 President's Cir", "Anywhere", "Utah");
-        LectureEvent standardLec = new LectureEvent("Mind Mapping and Brain Expansion", "This lecture will change your view and expand your mind to the science of brain mapping.", "December 14, 2025", "7:00p.m.", lecture);
-        LectureEvent fullDetailsLec = new LectureEvent("Mind Mapping and Brain Expansion", "Dr. Joan Mindly MD, PHD", "This lecture will change your view and expand your mind to the science of brain mapping.", 150, "December 14, 2025", "7:00p.m.", lecture);
+        LectureEvent standardLec = new LectureEvent("Mind Mapping and Brain Expansion", "This lecture will change your view and expand your mind to the science of brain mapping.", "December 14, 2025", "7:00p.m. to 9:00p.m.", lecture);
+        LectureEvent fullDetailsLec = new LectureEvent("Mind Mapping and Brain Expansion", "Dr. Joan Mindly MD, PHD", "This lecture will change your view and expand your mind to the science of brain mapping.", 150, "December 14, 2025", "7:00p.m. to 9:00p.m.", lecture);
         LectureEvent shortMessageLec = new LectureEvent("Mind Mapping and Brain Expansion", "December 14, 2025");
 
         //Method calls of LectureEvent

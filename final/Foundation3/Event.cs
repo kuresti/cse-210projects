@@ -40,19 +40,16 @@ public  abstract class Event
     //Standard Message
     public void DisplayStandardMessage()
     {
-        Console.WriteLine($"{_eventTitle}\n{_description}\n{_date}, {_time}\n{EventAddress.GetAddressString()}");
+        Console.WriteLine($"{_eventTitle}\nDescription: {_description}\nDate: {_date}\nTime: {_time}\n{EventAddress.GetAddressString()}");
     }
 
      //Full Details Message Abstract method
     //will be overridden by derived classes
     public abstract string DisplayFullDetails();
-    // {
-    //     Console.WriteLine($"{_eventTitle}\n{_description}\n{_date}, {_time}\n{EventAddress.GetAddressString()}");
-    // }
-
+    
     //Short description Message
     public void DisplayShortMessage()
     {
-        Console.WriteLine($"{GetType()}\n{_eventTitle}\n{_date}");
+        Console.WriteLine($"{GetType()}\n{_eventTitle}\nDate: {_date}");
     }
 }

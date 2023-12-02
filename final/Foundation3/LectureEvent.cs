@@ -29,7 +29,7 @@ public class LectureEvent : Event
     //Overridden by LectureEvent
     public override string DisplayFullDetails()
     {
-        return $"{GetType()}\n{_eventTitle}\n{_speaker}\n{_description}\nRegister Now. Limited Capacity of {_capacity}\n{_date},{_time}\n{EventAddress.GetAddressString()}";
+        return $"{GetType()}\n{_eventTitle}\nPresenter: {_speaker}\nDescription: {_description}\nRegister Now. Limited Capacity of {_capacity}.\nDate: {_date}\nTime: {_time}\n{EventAddress.GetAddressString()}";
     }
 
 

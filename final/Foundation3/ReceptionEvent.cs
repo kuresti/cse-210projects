@@ -28,6 +28,6 @@ public class ReceptionEvent : Event
 
     public override string DisplayFullDetails()
     {
-        return $"{GetType()}\n{_eventTitle}\n{_description}\n{_date} {_time}\n{EventAddress.GetAddressString()}\nPlease send your RSVP to {_email}";
+        return $"{GetType()}\n{_eventTitle}\nDescription: {_description}\nDate: {_date}\nTime: {_time}\n{EventAddress.GetAddressString()}\nPlease send your RSVP to {_email}";
     }
 }

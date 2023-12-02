@@ -6,7 +6,7 @@ public class LectureEvent : Event
 {
     //Attributes of LectureEvent
     private string _speaker;
-    private string _capacity;
+    private int _capacity;
 
     //Constructors of LectureEvent
     //Constructor for Standard message
@@ -14,7 +14,7 @@ public class LectureEvent : Event
     {}
 
     //Constructor for Full Details
-    public LectureEvent(string eventTitle, string speaker, string description, string capacity, string date, string time, Address address) :base(eventTitle, description, date, time, address)
+    public LectureEvent(string eventTitle, string speaker, string description, int capacity, string date, string time, Address address) :base(eventTitle, description, date, time, address)
     {
         _speaker = speaker;
         _capacity = capacity;
@@ -24,9 +24,14 @@ public class LectureEvent : Event
     public LectureEvent(string eventTitle, string date) : base(eventTitle, date)
     {}
 
-    DisplayStandardMessage("Mind Mapping and Brain Expansion", "This lecture will change your view and expand your mind to the science of brain mapping.", "December 14, 2025", "7:00p.m.", "201 President's Cir, Anywhere, USA");
+    
+    //Abstract Method from Event. 
+    //Overridden by LectureEvent
+    public override string DisplayFullDetails()
+    {
+        return $"{GetType()}\n{_eventTitle}\n{_speaker}\n{_description}\nRegister Now. Limited Capacity of {_capacity}\n{_date},{_time}\n{EventAddress.GetAddressString()}";
+    }
 
-    DisplayFullDetails()
 
 
 }

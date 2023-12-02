@@ -1,7 +1,7 @@
 using System;
 
 //Base class for the Event Program
-public class Event
+public  abstract class Event
 {
     //Attributes of the Event class
     //that will be inherited by derived classes
@@ -38,24 +38,21 @@ public class Event
     //that will be inherited by the derived classes
 
     //Standard Message
-    public string DisplayStandardMessage(string eventTitle, string description, string date, string time, Address address)
+    public void DisplayStandardMessage()
     {
-        return $"{eventTitle}\n{description}\n{date}, {time}\n{address}";
+        Console.WriteLine($"{_eventTitle}\n{_description}\n{_date}, {_time}\n{EventAddress.GetAddressString()}");
     }
 
-    //Short description Message
-    public string DisplayShortMessage(string eventTitle, string date)
-    {
-        return $"{GetType()}\n{eventTitle}, {date}";
-    }
-
-    //Full Details Message Abstract method
+     //Full Details Message Abstract method
     //will be overridden by derived classes
     public abstract string DisplayFullDetails();
+    // {
+    //     Console.WriteLine($"{_eventTitle}\n{_description}\n{_date}, {_time}\n{EventAddress.GetAddressString()}");
+    // }
 
-
-    
-
-
-
+    //Short description Message
+    public void DisplayShortMessage()
+    {
+        Console.WriteLine($"{GetType()}\n{_eventTitle}\n{_date}");
+    }
 }

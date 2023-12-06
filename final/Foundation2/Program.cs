@@ -61,6 +61,8 @@ class Program
                 ord2prod4.CalculatePrice();
                 ord2.AddProduct(ord2prod4);
 
+        //Create line between orders
+        Console.WriteLine("");
         //Shipping label for ord1
         ord2.GetShippingLabel();
 

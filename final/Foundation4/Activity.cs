@@ -63,7 +63,7 @@ public class Activity
 
     public virtual string GetSummaryString()
     {
-        return $"{_date} {GetType()} ({_lengthOfTime} min): Distance {GetDistance()} miles, Speed {GetSpeed()} mph Pace {GetPace()} min per mile";
+        return $"\n-{_date} {GetType()} ({_lengthOfTime} min): Distance {GetDistance()} miles, Speed {GetSpeed()} mph Pace {GetPace()} min per mile";
     }
 
 }

@@ -11,7 +11,7 @@ public class Activity
     protected int _lengthOfTime;
     protected string _date;
 
-    //Constructor for Activity class
+    //Constructors for Activity class
 
     //Constructor for the Running class
     public Activity(float distance, int lengthOfTime, string date)

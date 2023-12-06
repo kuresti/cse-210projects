@@ -71,27 +71,6 @@ class Program
 
         //Total Price for ord1
         ord2.CalculateTotalCost();
-
-            
-           
-
-           
-
-            
-            
-            
-
-            
-
-        // Console.WriteLine($"Customer Name: {customer1.Name}");
-        // Console.WriteLine($"{customer1.MailingAddress.GetAddressString()}");
-        // bool isDomestic = customer1.DomesticOrNot();
-        // Console.WriteLine($"Is Domestic: {isDomestic}");
-
-        // Product product1 = new Product("Socks", 1423, 3.00m, 4);
-        // Console.WriteLine($"Name: {product1.ProductName}\n ID: {product1.ProductID}, Price: ${product1.CalculatePrice()}");
-
-
         
     }
 
